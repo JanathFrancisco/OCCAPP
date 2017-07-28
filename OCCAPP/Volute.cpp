@@ -186,6 +186,8 @@ void CVolute::OnBnClickedOk()
 
 		 TopoDS_Wire sub_Wire = makeCross_section(heightVolute,widthVolute,theta01Volute,theta02Volute,expected_Area,angle,throat_Area,
 				                                      start_Area,expected_trapArea,trapeziumArea_Throat);
+
+		  BRepTools::Write(sub_Wire,"C:/Users/Dell/Desktop/Shapes/sub_Wire.brep");
 	    
 		 gp_Trsf rotation;
 		 gp_Ax1 rotationAxis(gp_Pnt(0.0,-2,0.0),gp_Dir(1.0,0.0,0.0));
@@ -194,6 +196,8 @@ void CVolute::OnBnClickedOk()
 
 		 TopoDS_Shape myShape = tform.Shape();
 	     TopoDS_Wire  myWire = TopoDS::Wire(myShape);
+		   BRepTools::Write(myWire,"C:/Users/Dell/Desktop/Shapes/myWire.brep");
+
 		
        	 cross.push_back(myWire);
 		 generator.AddWire(myWire);	 
@@ -204,6 +208,8 @@ void CVolute::OnBnClickedOk()
 
 	generator.Build();	   
 	TopoDS_Shape volute   = generator.Shape();
+
+    BRepTools::Write(volute,"C:/Users/Dell/Desktop/Shapes/voluteshape.brep");
 
 	/*EXIT PIPE*/
 		
@@ -231,6 +237,8 @@ void CVolute::OnBnClickedOk()
 	aBuilder.MakeCompound (completeShape);
 	aBuilder.Add(completeShape,volute);
 	aBuilder.Add(completeShape,exitPipe);
+
+	BRepTools::Write(completeShape,"C:/Users/Dell/Desktop/Shapes/completeShape.brep");
 
     Handle(AIS_InteractiveObject) obj3 = (new AIS_Shape(completeShape));
 	myAISContext->Display(obj3);
@@ -264,116 +272,54 @@ TopoDS_Wire CVolute::makeCross_section(double heightVolute,double widthVolute,do
 
   double Tolerance =  0.01*expected_Area; 
 		 		
-  double h_up  =heightVolute+ heightVolute*0.3;	
+  double h_up  =heightVolute+ heightVolute*0.5;	
   double h_low = new_heightVolute;
   double h_mid = (h_up + h_low)/2.0;
 
 
-	 gp_Pnt aPnt1( 0, 0, 0); 
-	 gp_Pnt new_aPnt2(-(new_heightVolute/tan_theta01Volute), new_heightVolute ,0);
-     gp_Pnt aPnt3 (widthVolute,0,0);
-     gp_Pnt new_aPnt4 ((widthVolute+(new_heightVolute)/tan_theta02Volute),new_heightVolute,0);
-	
+  gp_Pnt aPnt1( 0, 0, 0); 
+  gp_Pnt new_aPnt2(-(new_heightVolute/tan_theta01Volute), new_heightVolute ,0);
+  gp_Pnt aPnt3 (widthVolute,0,0);
+  gp_Pnt new_aPnt4 ((widthVolute+(new_heightVolute)/tan_theta02Volute),new_heightVolute,0);
+		 
+  BRepBuilderAPI_MakeEdge new_LINE01(aPnt1, new_aPnt2);
+  BRepBuilderAPI_MakeEdge LINE02(aPnt1, aPnt3);
+  BRepBuilderAPI_MakeEdge new_LINE03(aPnt3, new_aPnt4);
 
-	 
-	 BRepBuilderAPI_MakeEdge new_LINE01(aPnt1, new_aPnt2);
-	 BRepBuilderAPI_MakeEdge LINE02(aPnt1, aPnt3);
-	 BRepBuilderAPI_MakeEdge new_LINE03(aPnt3, new_aPnt4);
+  BRepBuilderAPI_MakeWire new_wire_Lines(new_LINE01, LINE02, new_LINE03);
+  TopoDS_Wire basewire = new_wire_Lines.Wire();
 
-     BRepBuilderAPI_MakeWire new_wire_Lines(new_LINE01, LINE02, new_LINE03);
-	 TopoDS_Wire basewire = new_wire_Lines.Wire();
-
-	 BRepTools::Write(basewire,"C:/Users/Dell/Desktop/Shapes/newBaseWire1.brep");
+  BRepTools::Write(basewire,"C:/Users/Dell/Desktop/Shapes/newBaseWire1.brep");
 
 	 /****************************************************/
 
-	 int times = 3;
 
-     TColgp_Array1OfPnt new_CurvePolesC(1,5); 
-     gp_Pnt new_ptC = gp_Pnt(-(new_heightVolute/tan_theta01Volute), new_heightVolute ,0);
-     new_CurvePolesC(1) = new_ptC; 
-     new_ptC = gp_Pnt(-((new_heightVolute+newratio_height)/tan_theta01Volute), new_heightVolute+newratio_height,0); 
-     new_CurvePolesC(2) = new_ptC; 
-	 new_ptC = gp_Pnt (widthVolute/2, new_heightVolute *times , 0); //////
-     new_CurvePolesC(3) = new_ptC; 
-     new_ptC = gp_Pnt	 ((widthVolute+(new_heightVolute+newratio_height)/tan_theta02Volute),new_heightVolute+newratio_height,0);
-     new_CurvePolesC(4) = new_ptC; 
-     new_ptC = gp_Pnt	    ((widthVolute+(new_heightVolute)/tan_theta02Volute),new_heightVolute,0); 
-     new_CurvePolesC(5) = new_ptC; 
-     Handle(Geom_BezierCurve) E3 = new Geom_BezierCurve(new_CurvePolesC); 
-     TopoDS_Edge new_Curve_check = BRepBuilderAPI_MakeEdge(E3); 
-
-	 BRepBuilderAPI_MakeWire init_wire_Lines_check(basewire);
-	 init_wire_Lines_check.Add(new_Curve_check);
-	 TopoDS_Face new_Face_check = BRepBuilderAPI_MakeFace(init_wire_Lines_check.Wire());
-
-	 BRepTools::Write(new_Face_check,"C:/Users/Dell/Desktop/Shapes/new_Face_check.brep");
-
-	 GProp_GProps new_system_check;
-     BRepGProp::SurfaceProperties(new_Face_check,new_system_check);
-     Standard_Real  newArea_check = new_system_check.Mass();
-	 out<<"new area check   : "<<newArea_check<<endl;
-
-	 
-
-	 while ( newArea_check < expected_Area)
-	 {
-		 times++;
-		 h_up = new_heightVolute*times;
-	
-     TColgp_Array1OfPnt new_CurvePolesC(1,5); 
-     gp_Pnt new_ptC = gp_Pnt(-(new_heightVolute/tan_theta01Volute), new_heightVolute ,0);
-     new_CurvePolesC(1) = new_ptC; 
-     new_ptC = gp_Pnt(-((new_heightVolute+newratio_height)/tan_theta01Volute), new_heightVolute+newratio_height,0); 
-     new_CurvePolesC(2) = new_ptC; 
-	 new_ptC = gp_Pnt (widthVolute/2, h_up , 0); 
-     new_CurvePolesC(3) = new_ptC; 
-     new_ptC = gp_Pnt	 ((widthVolute+(new_heightVolute+newratio_height)/tan_theta02Volute),new_heightVolute+newratio_height,0);
-     new_CurvePolesC(4) = new_ptC; 
-     new_ptC = gp_Pnt	    ((widthVolute+(new_heightVolute)/tan_theta02Volute),new_heightVolute,0); 
-     new_CurvePolesC(5) = new_ptC; 
-     Handle(Geom_BezierCurve) E3 = new Geom_BezierCurve(new_CurvePolesC); 
-     TopoDS_Edge new_Curve_check = BRepBuilderAPI_MakeEdge(E3); 
-
-	 BRepBuilderAPI_MakeWire init_wire_Lines_check(basewire);
-	 init_wire_Lines_check.Add(new_Curve_check);
-	 TopoDS_Face new_Face_check = BRepBuilderAPI_MakeFace(init_wire_Lines_check.Wire());
-
-	 GProp_GProps new_system_check;
-     BRepGProp::SurfaceProperties(new_Face_check,new_system_check);
-     Standard_Real  newArea_check1 = new_system_check.Mass();
-	
-	      newArea_check = newArea_check1 ;
-		  out<<"new area check while   : "<<newArea_check<<endl;
-
-	 }
-
-	  /****************************************************/
+	 /****************************************************/
 
 
-     TColgp_Array1OfPnt new_CurvePoles(1,5); 
-     gp_Pnt new_pt = gp_Pnt(-(new_heightVolute/tan_theta01Volute), new_heightVolute ,0);
-     new_CurvePoles(1) = new_pt; 
-     new_pt = gp_Pnt(-((new_heightVolute+newratio_height)/tan_theta01Volute), new_heightVolute+newratio_height,0); 
-     new_CurvePoles(2) = new_pt; 
-	 new_pt = gp_Pnt (widthVolute/2, h_mid,0); /*(widthVolute/2,h_mid,0); */
-     new_CurvePoles(3) = new_pt; 
-     new_pt = gp_Pnt	 ((widthVolute+(new_heightVolute+newratio_height)/tan_theta02Volute),new_heightVolute+newratio_height,0);
-     new_CurvePoles(4) = new_pt; 
-     new_pt = gp_Pnt	    ((widthVolute+(new_heightVolute)/tan_theta02Volute),new_heightVolute,0); 
-     new_CurvePoles(5) = new_pt; 
-     Handle(Geom_BezierCurve) E2 = new Geom_BezierCurve(new_CurvePoles); 
-     TopoDS_Edge new_Curve = BRepBuilderAPI_MakeEdge(E2); 
+  TColgp_Array1OfPnt new_CurvePoles(1,5); 
+  gp_Pnt new_pt = gp_Pnt(-(new_heightVolute/tan_theta01Volute), new_heightVolute ,0);
+  new_CurvePoles(1) = new_pt; 
+  new_pt = gp_Pnt(-((new_heightVolute+newratio_height)/tan_theta01Volute), new_heightVolute+newratio_height,0); 
+  new_CurvePoles(2) = new_pt; 
+  new_pt = gp_Pnt (widthVolute/2, h_mid,0); 
+  new_CurvePoles(3) = new_pt; 
+  new_pt = gp_Pnt	 ((widthVolute+(new_heightVolute+newratio_height)/tan_theta02Volute),new_heightVolute+newratio_height,0);
+  new_CurvePoles(4) = new_pt; 
+  new_pt = gp_Pnt	    ((widthVolute+(new_heightVolute)/tan_theta02Volute),new_heightVolute,0); 
+  new_CurvePoles(5) = new_pt; 
+  Handle(Geom_BezierCurve) E2 = new Geom_BezierCurve(new_CurvePoles); 
+  TopoDS_Edge new_Curve = BRepBuilderAPI_MakeEdge(E2); 
 
-	 BRepBuilderAPI_MakeWire init_wire_Lines(basewire);
-	 init_wire_Lines.Add(new_Curve);
-	 TopoDS_Face new_Face = BRepBuilderAPI_MakeFace(init_wire_Lines.Wire());
+  BRepBuilderAPI_MakeWire init_wire_Lines(basewire);
+  init_wire_Lines.Add(new_Curve);
+  TopoDS_Face new_Face = BRepBuilderAPI_MakeFace(init_wire_Lines.Wire());
 
-	 BRepTools::Write(new_wire_Lines,"C:/Users/Dell/Desktop/Shapes/newFullWire.brep");
+  BRepTools::Write(new_wire_Lines,"C:/Users/Dell/Desktop/Shapes/newFullWire.brep");
 
-	 GProp_GProps new_system;
-     BRepGProp::SurfaceProperties(new_Face,new_system);
-     Standard_Real  newArea = new_system.Mass();
+  GProp_GProps new_system;
+  BRepGProp::SurfaceProperties(new_Face,new_system);
+  Standard_Real  newArea = new_system.Mass();
 	 
 
 	 if(fabs(expected_Area-newArea)<Tolerance)

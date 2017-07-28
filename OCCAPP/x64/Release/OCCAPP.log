@@ -1,10 +1,10 @@
-﻿Build started 7/28/2017 10:37:08 AM.
-     1>Project "C:\Users\Dell\Desktop\OCCAPPdONE New\OCCAPP\OCCAPP.vcxproj" on node 2 (Build target(s)).
+﻿Build started 7/28/2017 3:44:01 PM.
+     1>Project "C:\Users\Dell\Desktop\OCCAPPdONE New-original\OCCAPP\OCCAPP.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"D:\OCCT\opencascade-7.0.0\inc" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Release\OCCAPP.pch" /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt Volute.cpp
          Volute.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Dell\Desktop\OCCAPPdONE New\x64\Release\OCCAPP.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\OCCT\opencascade-7.0.0\win64\vc11\lib" FWOSPlugin.lib TKBin.lib TKBinL.lib TKBinTObj.lib TKBinXCAF.lib TKBO.lib TKBool.lib TKBRep.lib TKCAF.lib TKCDF.lib TKDCAF.lib TKDraw.lib TKernel.lib TKFeat.lib TKFillet.lib TKG2d.lib TKG3d.lib TKGeomAlgo.lib TKGeomBase.lib TKHLR.lib TKIGES.lib TKLCAF.lib TKMath.lib TKMesh.lib TKMeshVS.lib TKOffset.lib TKOpenGl.lib TKPrim.lib TKQADraw.lib TKService.lib TKShHealing.lib TKSTEP.lib TKSTEP209.lib TKSTEPAttr.lib TKSTEPBase.lib TKSTL.lib TKTObj.lib TKTObjDRAW.lib TKTopAlgo.lib TKTopTest.lib TKV3d.lib TKVCAF.lib TKViewerTest.lib TKVRML.lib TKXCAF.lib TKXDEDRAW.lib TKXDEIGES.lib TKXDESTEP.lib TKXMesh.lib TKXml.lib TKXmlL.lib TKXmlTObj.lib TKXmlXCAF.lib TKXSBase.lib TKXSDRAW.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\Dell\Desktop\OCCAPPdONE New\x64\Release\OCCAPP.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Dell\Desktop\OCCAPPdONE New\x64\Release\OCCAPP.lib" /MACHINE:X64 x64\Release\OCCAPP.res
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Dell\Desktop\OCCAPPdONE New-original\x64\Release\OCCAPP.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\OCCT\opencascade-7.0.0\win64\vc11\lib" FWOSPlugin.lib TKBin.lib TKBinL.lib TKBinTObj.lib TKBinXCAF.lib TKBO.lib TKBool.lib TKBRep.lib TKCAF.lib TKCDF.lib TKDCAF.lib TKDraw.lib TKernel.lib TKFeat.lib TKFillet.lib TKG2d.lib TKG3d.lib TKGeomAlgo.lib TKGeomBase.lib TKHLR.lib TKIGES.lib TKLCAF.lib TKMath.lib TKMesh.lib TKMeshVS.lib TKOffset.lib TKOpenGl.lib TKPrim.lib TKQADraw.lib TKService.lib TKShHealing.lib TKSTEP.lib TKSTEP209.lib TKSTEPAttr.lib TKSTEPBase.lib TKSTL.lib TKTObj.lib TKTObjDRAW.lib TKTopAlgo.lib TKTopTest.lib TKV3d.lib TKVCAF.lib TKViewerTest.lib TKVRML.lib TKXCAF.lib TKXDEDRAW.lib TKXDEIGES.lib TKXDESTEP.lib TKXMesh.lib TKXml.lib TKXmlL.lib TKXmlTObj.lib TKXmlXCAF.lib TKXSBase.lib TKXSDRAW.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\Dell\Desktop\OCCAPPdONE New-original\x64\Release\OCCAPP.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Dell\Desktop\OCCAPPdONE New-original\x64\Release\OCCAPP.lib" /MACHINE:X64 x64\Release\OCCAPP.res
          x64\Release\ClassView.obj
          x64\Release\CreateBox.obj
          x64\Release\DrilledBox.obj
@@ -18,12 +18,12 @@
          x64\Release\stdafx.obj
          x64\Release\ViewTree.obj
          x64\Release\Volute.obj
-            Creating library C:\Users\Dell\Desktop\OCCAPPdONE New\x64\Release\OCCAPP.lib and object C:\Users\Dell\Desktop\OCCAPPdONE New\x64\Release\OCCAPP.exp
+            Creating library C:\Users\Dell\Desktop\OCCAPPdONE New-original\x64\Release\OCCAPP.lib and object C:\Users\Dell\Desktop\OCCAPPdONE New-original\x64\Release\OCCAPP.exp
          Generating code
          Finished generating code
-         OCCAPP.vcxproj -> C:\Users\Dell\Desktop\OCCAPPdONE New\x64\Release\OCCAPP.exe
-     1>Done Building Project "C:\Users\Dell\Desktop\OCCAPPdONE New\OCCAPP\OCCAPP.vcxproj" (Build target(s)).
+         OCCAPP.vcxproj -> C:\Users\Dell\Desktop\OCCAPPdONE New-original\x64\Release\OCCAPP.exe
+     1>Done Building Project "C:\Users\Dell\Desktop\OCCAPPdONE New-original\OCCAPP\OCCAPP.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:08.81
+Time Elapsed 00:00:08.65
