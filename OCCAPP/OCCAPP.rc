@@ -382,15 +382,21 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,252,156,50,14
     LTEXT           "Height",IDC_STATIC,21,44,22,8
     LTEXT           "Width",IDC_STATIC,21,65,20,8
-    LTEXT           "Theta01",IDC_STATIC,163,41,28,8
-    LTEXT           "Theta02",IDC_STATIC,164,66,28,8
+    LTEXT           "Theta01",IDC_STATIC,19,92,28,8
+    LTEXT           "Theta02",IDC_STATIC,17,116,28,8
     EDITTEXT        IDC_EDIT_heightVolute,89,42,38,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_widthVolute,90,65,37,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_Theta01,246,36,38,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_Theta04,247,62,37,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_Theta01,89,90,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_Theta04,90,114,37,14,ES_AUTOHSCROLL
     LTEXT           "Volute Geometry",IDC_STATIC,23,14,54,8
-    LTEXT           "Start Area Fraction",IDC_STATIC,165,89,62,8
-    EDITTEXT        IDC_EDIT_Fraction,248,87,37,14,ES_AUTOHSCROLL
+    LTEXT           "Start Area Fraction",IDC_STATIC,155,44,62,8
+    EDITTEXT        IDC_EDIT_Fraction,242,42,37,14,ES_AUTOHSCROLL
+    LTEXT           "Exti Pipe Length",IDC_STATIC,157,69,52,8
+    EDITTEXT        IDC_EDIT_exitPipeLength,243,67,37,14,ES_AUTOHSCROLL
+    LTEXT           "Exit Pipe Fraction",IDC_STATIC,157,93,56,8
+    EDITTEXT        IDC_EDIT_exitPipeFraction,243,92,36,14,ES_AUTOHSCROLL
+    LTEXT           "%",IDC_STATIC,285,44,8,8
+    LTEXT           "%",IDC_STATIC,283,95,8,8
 END
 
 

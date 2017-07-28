@@ -1,0 +1,32 @@
+﻿Build started 7/25/2017 3:48:42 PM.
+     1>Project "C:\Users\Dell\Desktop\OCCAPPdONE New\OCCAPP\OCCAPP.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"D:\OCCT\opencascade-7.0.0\inc" /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"x64\Debug\OCCAPP.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I"D:\OCCT\opencascade-7.0.0\inc" /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Debug\OCCAPP.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt ClassView.cpp CreateBox.cpp DrilledBox.cpp FileView.cpp MainFrm.cpp OCCAPP.cpp OCCAPPDoc.cpp OCCAPPView.cpp OutputWnd.cpp PropertiesWnd.cpp ViewTree.cpp Volute.cpp
+         Volute.cpp
+     1>Volute.cpp(140): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+         ViewTree.cpp
+         PropertiesWnd.cpp
+         OutputWnd.cpp
+         OCCAPPView.cpp
+     1>OCCAPPView.cpp(349): error C2661: 'Standard_Transient::operator new' : no overloaded function takes 3 arguments
+         OCCAPPDoc.cpp
+     1>OCCAPPDoc.cpp(59): error C2661: 'Standard_Transient::operator new' : no overloaded function takes 3 arguments
+     1>OCCAPPDoc.cpp(62): error C2661: 'Standard_Transient::operator new' : no overloaded function takes 3 arguments
+     1>OCCAPPDoc.cpp(325): error C2661: 'Standard_Transient::operator new' : no overloaded function takes 3 arguments
+         OCCAPP.cpp
+     1>OCCAPP.cpp(58): error C2661: 'Standard_Transient::operator new' : no overloaded function takes 3 arguments
+         MainFrm.cpp
+         FileView.cpp
+         DrilledBox.cpp
+     1>DrilledBox.cpp(122): warning C4805: '==' : unsafe mix of type 'int' and type 'bool' in operation
+     1>DrilledBox.cpp(144): warning C4805: '==' : unsafe mix of type 'int' and type 'bool' in operation
+         CreateBox.cpp
+         ClassView.cpp
+         Generating Code...
+     1>Done Building Project "C:\Users\Dell\Desktop\OCCAPPdONE New\OCCAPP\OCCAPP.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:26.67

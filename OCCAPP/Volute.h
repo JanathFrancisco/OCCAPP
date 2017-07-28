@@ -17,6 +17,9 @@ public:
    	CEdit m_edttheta01Volute;
 	CEdit m_edttheta02Volute;
 	CEdit m_edtFraction;
+	CEdit m_edtexitPipeLength;
+	CEdit m_edtexitPipeFraction;
+
 	TopoDS_Shape Volute; 
 // Dialog Data
 	enum { IDD = IDD_DIALOG_Volute };
@@ -27,7 +30,7 @@ protected:
 
 public: 
 	TopoDS_Wire makeCross_section(double heightVolute, double widthVolute, double theta01Volute, double theta02Volute,
-		                          double expected_Area,double angle,double throat_Area);   
+		                          double expected_Area,double angle,double throat_Area,double start_Area,double trapeziumArea_startFraction,double trapeziumArea_Throat);   
 
 	DECLARE_MESSAGE_MAP()
 public:
@@ -40,4 +43,6 @@ public:
 	
 
 	afx_msg void OnEnChangeEditFraction();
+	afx_msg void OnEnChangeEditexitpipelength();
+	afx_msg void OnEnChangeEditexitpipefraction();
 };

@@ -100,11 +100,13 @@
 #define IDC_EDIT_Theta01                1002
 #define IDC_EDIT4                       1003
 #define IDC_EDIT5                       1004
+#define IDC_EDIT_exitPipeFraction       1004
 #define IDC_RADIO2                      1013
 #define IDC_RADIO3                      1015
 #define IDC_RADIO4                      1016
 #define IDC_EDIT_Theta04                1022
 #define IDC_EDIT_Fraction               1023
+#define IDC_EDIT_exitPipeLength         1024
 #define ID_BUTTON32771                  32771
 #define ID_BUTTONBox                    32771
 #define ID_BUTTONBox2                   32772
@@ -121,7 +123,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        315
 #define _APS_NEXT_COMMAND_VALUE         32780
-#define _APS_NEXT_CONTROL_VALUE         1024
+#define _APS_NEXT_CONTROL_VALUE         1025
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif
